@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/confo.css">
+    <link rel="shortcut icon" type="image/png" href="/img/enablex.png"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/tether.min.js"></script>
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/EnxRtc.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <link rel="stylesheet" href="css/jquery.toast.css">
+    <style>
+        body
+        {
+            overflow: hidden;
+        }
+        .question_container
+        {
+            position: absolute;
+            bottom: 20px;
+            left:20px;
+        }
+        video{
+            height: 100%;
+            width: 100%;
+        }
+        button#joinRoom {
+            height: 85px;
+            font-size: x-large;
+        }
+        .center-text{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        .bottom-center-text{
+            position: absolute;
+            bottom: 7%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            align-items: flex-end;
+            text-align: center;
+            justify-content: center;
+            width:50%;
+
+        }
+        .question
+        {
+            background-color: #0f0e0e9c;
+            padding: 20px;
+            color:white
+        }
+    </style>
+
+</head>
+<body>
+<!--<div class="preloader"></div>-->
+<div class="preloader" style="display: none;"></div>
+<div class="container-fluid">
+    <div class="joinRoom">
+        <div class="text-center center-text">
+            <button class="btn btn-danger" id="joinRoom">Start Video KYC</button>
+        </div>
+    </div>
+
+    <div class="row " id="confo_container" style="display: none;">
+
+        <div class="video_div" style="width: 100%;height:100%;">
+            <div id="local_video_div"></div>
+        </div>
+        <div id="snapshot-container" class="bottom-center-text">
+            <div>
+                <button class="btn btn-danger btn-lg" id="take_snapshot"><i class="fa fa-camera " style="color: white;"  ></i></button>
+            </div>
+            <div>
+                <h2 id="snapshot_text" style="color: white;">Take a Photo</h2>
+            </div>
+        </div>
+        <div id="snapshot-container-success-text" class="bottom-center-text" style="display: none;">
+            <h2 style="color: white;" >Photo Saved</h2>
+        </div>
+        <div class="question_container bottom-center-text" style="display: none;">
+            <div id="sample_text_container">
+                <div class="text-container">
+                    <h2 class="question" >You need to answer some Questions that appear on the Screen one by one. You need to click NEXT to move to next Question.</h2>
+                </div>
+                <div class="next_question">
+                    <button id="close_sample" class="btn btn-danger btn-lg">OK. Get started! </button>
+                </div>
+            </div>
+            <div id="quest_container" style="display: none;">
+                <div class="text-container">
+                    <h2 class="question" id="question"></h2>
+                </div>
+                <div class="next_question">
+                    <button id="next_question" style="display: none;" class="btn btn-danger btn-lg">Next</button>
+                </div>
+                <div class="close_quest" id="close_quest" style="display: none;">
+                    <button id="close" class="btn btn-danger btn-lg">End KYC</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="thanks_msg" class="text-center center-text" style="display: none;">
+        <h2 style="color: white;">Thanks for participating in KYC Process.</h2>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.toast.js"></script>
+</body>
+</html>
