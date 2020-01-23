@@ -41,7 +41,7 @@ var obj = {
         "auto_recording": true,
         "active_talker": true,
         "wait_moderator": false,
-        "quality": "HD",
+        "quality": "SD",
         "adhoc": true,
         "mode": "group"
     },

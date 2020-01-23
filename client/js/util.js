@@ -82,7 +82,7 @@ var config = {
     audio: true,
     video: true,
     data: true,
-    videoSize: [1280,720,1280,720],
+    videoSize: [320, 180, 640, 480],
     maxVideoLayers: 1,
     attributes : {
         name:name
