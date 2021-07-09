@@ -12,7 +12,7 @@ https://developer.enablex.io/video/browser-compatibility-of-enablex-video/
 
 ## 1. Important!
 
-When developing a Client Application with EnxRtc.js make sure to include the updated EnxRtc.js polyfills from https://developer.enablex.io/video-api/client-api/web-toolkit/ for RTCPeerConnection and getUserMedia. Otherwise your application will not work in web browsers.
+When developing a Client Application with EnxRtc.js ( present in client/js ), make sure to replace the old EnxRtc.js with updated EnxRtc.js polyfills from https://developer.enablex.io/video-api/client-api/web-toolkit/ for RTCPeerConnection and getUserMedia. Otherwise your application will not work in web browsers.
 
 
 ## 2. Trial
@@ -26,9 +26,9 @@ Sign up for a free trial https://portal.enablex.io/cpaas/trial-sign-up/ or try o
 
 #### 3.1.1 App Id and App Key
 
-* Register with EnableX [https://portal.enablex.io/cpaas/trial-sign-up/] 
-* Create your Application
-* Get your App ID and App Key
+* Create a free account on EnableX [https://portal.enablex.io/cpaas/trial-sign-up/]
+* Create your Project
+* Get the App ID and App Key generated against the Project
 * Clone this repository `git clone https://github.com/EnableX/Video-KYC-Webrtc-Application-Sample-for-Web.git --recursive` & follow the steps further 
 * You can copy the app into any sub-directory of hosted website on Apache
 
@@ -44,6 +44,24 @@ However you may use self-signed Certificate to run this application locally. The
 
 As you have Certificate or created a Self-Signed Certificate, create a directory "certs" under your Sample Web App Directory. Copy your Certificate files (.key and .crt files)  to this directory.
 
+The following below can also be used to create a self-signed certificate.
+
+ Linux/Mac
+```javascript
+  cd Video-KYC-Webrtc-Application-Sample-for-Web
+  mkdir certs
+  sudo openssl req -x509 -newkey rsa:4096 -keyout ./certs/example.key -out ./certs/example.crt -days 10000 -nodes
+  sudo chmod 755 ./certs/example.*
+  cd ..
+```
+Windows(Use Git Bash)
+```javascript
+  cd Video-KYC-Webrtc-Application-Sample-for-Web
+  mkdir certs
+  openssl req -x509 -newkey rsa:4096 -keyout ./certs/example.key -out ./certs/example.crt -days 10000 -nodes
+  chmod 755 ./certs/example.*
+  cd ..
+```
 #### 3.1.3 Configure
 
 Before you can run this application, configure the service by editing `server/vcxconfig.js` to meet project requirement:
@@ -52,19 +70,20 @@ Before you can run this application, configure the service by editing `server/vc
     name: "Video KYC POC",     // Name of the Application [Change optional]
     version: "1.0.0",                   // Version [Change optional]
     path: "/v1",                        // Route [Default /v1]
-    domain: "yourdomain.com",           // FQDN of  your hosting enviornment
+    domain: "localhost",           // FQDN of  your hosting enviornment
     port  : "4443",                     // FQDN of  your hosting port. You need sudo permission if you want to use standard 443
     listen_ssl : true                   // SSL on/off key  [ Set always to "true" ]
   };
 
   vcxconfig.Certificate = {
-    ssl_key:    "../certs/yourdomain.key",  // Use the certificate ".key" [self signed or registered]
-    ssl_cert :  "../certs/yourdomain.crt",  // Use the certificate ".crt" [self signed or registered]
-    sslCaCerts :  ["../cert/yourdomain.ca-bundle"]    // Use the certificate CA[chain] [self signed or registered]
+    ssl_key:      "../certs/example.key",  // Use the certificate ".key" [self signed or registered]
+    ssl_cert :    "../certs/example.crt",  // Use the certificate ".crt" [self signed or registered]
+    sslCaCerts :  null                        // Use the certificate CA[chain] [self signed or registered]
   };
 
   vcxconfig.SERVER_API_SERVER = {
     host: 'api.enablex.io',             // Hosted EnableX Server API Domain Name
+    port: '443'
   };
 
   vcxconfig.clientPath  = "../client";    // UI files location
@@ -80,9 +99,16 @@ Run `npm install --save` to build the project and the build artifacts will be st
 
 Run `node server.js` inside `server` folder for starting your Server. 
 
+```
+  - cd server
+  - node server.js
+
+```
+
+
 #### 3.2.2 Test 
 
-* Open a browser and go to [https://yourdomain.com:4443/](https://yourdomain.com:4443/). The browser should load the App. 
+* Open a browser and go to [https://localhost:4443/](https://localhost:4443/). The browser should load the App. 
 * Allow access to Camera and Mic as and when prompted to start your first RTC Call through EnableX
 
 

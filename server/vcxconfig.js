@@ -33,8 +33,8 @@ vcxconfig.SERViCE={
 // SSL Certificate (Self Signed or Registered)
 
 vcxconfig.Certificate={
-    ssl_key:'',
-    ssl_cert:'',
+    ssl_key:'../certs/example.key',
+    ssl_cert:'../certs/example.crt',
     sslCaCerts: null
 };
 
