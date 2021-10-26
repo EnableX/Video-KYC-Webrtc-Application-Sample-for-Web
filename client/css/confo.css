@@ -207,3 +207,144 @@ cursor:pointer;
 canvas{
     display: none;
 }
+
+.question {
+    background-color: #ff00009c;
+    padding: 20px;
+    color: white;
+    border-radius: 5px;
+    z-index: 10;
+   
+}
+
+.confo-container {
+    position: relative;
+}
+
+.progress-bar-wrapper {
+    
+    z-index: 9;
+    /* width: 80%; */
+    /* bottom: 0; */
+    opacity: 0.5;
+    position: absolute;
+  bottom:5%;
+  width: 100%;
+   
+    
+}
+#tick_btn{
+    color: green;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+}
+.icon-wrapper{
+    position: absolute;
+    z-index:9;
+    width: 30%;
+    inline-size: 10%;
+    left: 0;
+    height: 30%;
+}
+#restart_btn{
+    position: absolute;
+bottom: 0;
+left: 0;
+z-index: 11;
+margin-bottom: 10px;
+margin-left:10px;
+}
+#next_question{
+    position: fixed;
+bottom: 0;
+right: 0;
+z-index: 11;
+margin-bottom: 10px;
+margin-right:10px;
+}
+#temp_btn{
+    position: fixed;
+bottom: 0;
+right: 0;
+z-index: 8;
+color: red;
+margin-bottom: 10px;
+margin-right:10px;
+}
+#close{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 11;
+    margin-bottom: 9px;
+    margin-right: 4px;
+    font-size: smaller;
+    padding-top: 13px;
+    padding-bottom: 17px;
+}
+#website{
+    position: absolute;
+    bottom:0;
+    right:0;margin-bottom: 10px;
+    margin-right:5pxpx;
+z-index: 101;
+}
+#try_again{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 10px;
+margin-left:10px;
+  
+z-index: 100;
+}
+
+.custom-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 9;
+}
+
+.progress-bar-wrapper {
+    position: static;
+}
+
+
+div#restart_btn {
+    position: static;
+}
+
+div#temp_btn {
+    position: static;
+}
+
+.custom-wrapper-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 9;
+}
+
+.progress-bar-wrapper-2 {
+    position: static;
+}
+
+
+div#website {
+    position: static;
+}
+
+div#try_again {
+    position: static;
+}
+
+

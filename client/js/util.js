@@ -10,6 +10,22 @@
 var counter = 0;
 var room,roomData;
 var localStream = null;
+
+var random_num = parseInt((""+Math.random()).substring(2,7));
+
+var questions = [
+    {"question":"What is your name?"},
+    {"question":"What is your age?"},
+    {"question":"What is your city?"},
+  
+    {"question":"What is the number on screen : "+random_num},
+
+
+];
+
+let questionsLength=questions.length;
+
+
 window.onload = function () {
 
 
@@ -24,6 +40,10 @@ window.onload = function () {
         $("#quest_container").show();
         $("#sample_text_container").hide();
         next_question(counter);
+        $("#progress_bar").show();
+        $("#temp").show();
+        $("#restart").show();
+        
     });
     $("#take_snapshot").on("click",function () {
         $("#snapshot_text").html("Saving  Photo...");
@@ -46,21 +66,36 @@ window.onload = function () {
 
             }
         });
-
+       
     })
     $("#next_question").on("click",function(){
+        
         $("#next_question").hide();
         counter++;
+        updateBar(counter);
         next_question(counter);
     });
     $(".close_quest").on("click",function(){
         room.disconnect();
        $("#confo_container").hide();
+
        $(".joinRoom").hide();
+       
+
+    //    $('#tick_sign').show();
        $("#thanks_msg").show();
+    //    $('#progress-change').show();
+    //    document.querySelector('#progress-change').style.width=`${100}%`;
+    // document.querySelector('#progress-change').innerHTML=`${100}%`;
     });
 
 }
+
+function updateBar(count){
+    document.querySelector('#progress-change').style.width=`${Math.floor((count/questionsLength)*100)}%`;
+    document.querySelector('#progress-change').innerHTML=`  ${Math.floor((count/questionsLength)*100)}%`;
+}
+
 
 var options = {
     player: {
@@ -189,15 +224,7 @@ var creatSnapShot = function (details, callback) {
     xhttp.send(JSON.stringify(details));
 };
 
-var random_num = parseInt((""+Math.random()).substring(2,7))
-var questions = [
-    {"question":"What is your name?"},
-    {"question":"What is your age?"},
-    {"question":"What is your city?"},
-    {"question":"What is the number on screen "+random_num},
 
-
-]
 
 function next_question(counter)
 {
@@ -238,3 +265,4 @@ function next_question(counter)
         },10000);
     }
 }
+
