@@ -33,16 +33,19 @@ window.onload = function () {
         $("#joinRoom").attr("disabled", "disabled");
         $(".preloader").show();
         createRoom(function (result) {
-
+         
         });
     });
     $("#close_sample").on("click",function(){
+        
         $("#quest_container").show();
         $("#sample_text_container").hide();
         next_question(counter);
         $("#progress_bar").show();
         $("#temp").show();
         $("#restart").show();
+        
+        startTimer();
         
     });
     $("#take_snapshot").on("click",function () {
@@ -74,6 +77,8 @@ window.onload = function () {
         counter++;
         updateBar(counter);
         next_question(counter);
+        
+        startTimer();
     });
     $(".close_quest").on("click",function(){
         room.disconnect();
@@ -99,8 +104,8 @@ function updateBar(count){
 
 var options = {
     player: {
-        'height': '100%',
-        'width': '100%',
+        'height': '90%',
+        'width': '90%',
         'minHeight': 'inherit',
         'minWidth': 'inherit'
     },
@@ -117,7 +122,7 @@ var config = {
     audio: true,
     video: true,
     data: true,
-    videoSize: [320, 180, 640, 480],
+    videoSize: [],
     maxVideoLayers: 1,
     attributes : {
         name:name
@@ -246,7 +251,7 @@ function next_question(counter)
         $("#next_question").hide();
         setTimeout(function(){
             $("#close_quest").show();
-        },10000);
+        },6000);
 
 
     }
@@ -262,7 +267,63 @@ function next_question(counter)
         localStream.sendData(jsonData);
         setTimeout(function(){
             $("#next_question").show();
-        },10000);
+        },6000);
     }
 }
 
+// let toggle=0;
+
+// function restartQuestions(){
+//     if(counter!==questionsLength-1){
+//         $('#next_question').hide();
+//     setTimeout(function(){
+//         $("#next_question").show();
+//     },2000);
+//     }
+//     if(counter===questionsLength-1){
+//         $('#close').hide();
+//         setTimeout(function(){
+
+//             $('#next_question').show();
+//         },1000);   
+       
+//     }
+    
+    
+//     counter=0;
+//     $('#question').html(questions[counter].question);
+//     document.querySelector('#progress-change').style.width=`${Math.floor((counter/questionsLength)*100)}%`;
+//     document.querySelector('#progress-change').innerHTML=`  ${Math.floor((count/questionsLength)*100)}%`;
+    
+//     // while(counter<questionsLength-1){
+//     //     if(document.querySelector('#next_question').clicked===true){
+//     //         counter++;
+//     //         $('#question').html(questions[counter].question);
+//     //         document.querySelector('#progress-change').style.width=`${Math.floor((counter/questionsLength)*100)}%`;
+//     //         document.querySelector('#progress-change').innerHTML=`  ${Math.floor((counter/questionsLength)*100)}%`;
+//     //     }
+//     // }
+//     // $('#question').html(questions[counter].question);
+//     // $('#close').show();
+    
+// }
+function startTimer(){
+    
+    var counter = 5;
+
+    var interval = setInterval(function() {       
+        // Display 'counter' wherever you want to display it.
+        $('#timer').show();
+        if (counter === -1) {               
+                 clearInterval(interval); 
+                 $('#timer').text('00:00');
+                 $('#timer').hide();   
+                              
+            return;
+        }else{
+            $('#timer').text('00:0'+counter);         
+        }
+        counter--;
+    }, 1000);
+    
+}

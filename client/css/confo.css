@@ -1,6 +1,9 @@
 body{
     background-color: #333 !important;
 }
+video{
+    /* object-fit: contain !important; */
+}
 .card_div{
     padding: 10px;
     border: 1px solid #ccc;
@@ -78,6 +81,7 @@ textarea{
 #local_video_div{
     height:400px;
     width: 100%;
+    margin: 0 auto;
 }
 .full_width{
     width:100%;
@@ -209,7 +213,7 @@ canvas{
 }
 
 .question {
-    background-color: #ff00009c;
+    background-color: #0c0b0e52;
     padding: 20px;
     color: white;
     border-radius: 5px;
@@ -288,7 +292,7 @@ margin-right:10px;
     position: absolute;
     bottom:0;
     right:0;margin-bottom: 10px;
-    margin-right:5pxpx;
+    margin-right: 10px;
 z-index: 101;
 }
 #try_again{

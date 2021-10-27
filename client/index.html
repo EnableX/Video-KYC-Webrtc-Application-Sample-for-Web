@@ -73,7 +73,7 @@
     <div class="container-fluid">
         <div class="joinRoom">
             <div class="container icon-wrapper" >
-                <img src="../img/logo.png" alt="">
+                <img src="../img/logo.png" alt="" style="width:200px">
             </div>
             <div class="text-center center-text">
                 <button class="btn btn-danger" id="joinRoom">Start Video KYC</button>
@@ -84,7 +84,7 @@
         <div class="row " id="confo_container" style="display: none;">
 
             <div class="container icon-wrapper">
-                <img src="../img/logo.png" alt="">
+                <img src="../img/logo.png" alt="" style="width:200px">
             </div>
             <div class="custom-wrapper"> 
                 <div class="restart-button" id="restart_btn">
@@ -132,22 +132,25 @@
             <div class="question_container bottom-center-text" style="display: none;">
                 <div id="sample_text_container">
                     <div class="text-container">
-                        <h2 class="question">You will be presented with a series of questions. You need to speak out
+                        <h3 class="question">You will be presented with a series of questions. You need to speak out
                             your answer and press next button to move onto the next question when indicated.</h2>
                     </div>
                     <div class="next_question">
                         <button id="close_sample" class="btn btn-danger btn-lg">OK. Get started! </button>
                     </div>
                 </div>
-                
+                <div class="timer_container" >
+                    <h3 class="timer" id="timer" style="color:white;"></h2>
+                </div>
                 
                 <div id="quest_container" style="display: none;">
                     <div class="next_question">
                         <button id="next_question" style="display: none;"  class="btn btn-success btn-lg">Next</button>
                     </div>
                     <div class="text-container">
-                        <h2 class="question" id="question"></h2>
+                        <h3 class="question" id="question"></h2>
                     </div>
+                    
                     
                     
                 </div>
@@ -172,8 +175,8 @@
                     </div>
                    </div>
                 </div>
-              <button id="website" class="btn btn-warning btn-lg" ><a href='https://www.enablex.io/' alt='Broken Link' style="color: white;">Website</a></button>
-             <button id="try_again" class="btn btn-danger btn-lg" onclick="location.reload()">Restart</button>
+              <button id="website" class="btn btn-warning " ><a href='https://www.enablex.io/' alt='Broken Link' style="color: white;">Website</a></button>
+             <button id="try_again" class="btn btn-danger " onclick="location.reload()">Restart</button>
             </div>
         </div>
     </div>
