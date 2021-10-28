@@ -571,3 +571,14 @@ h3#timer {
     top: -65px;
 }
 
+.progress-bar-wrapper-2 {
+position: static;
+width: 82%;
+padding: 0;
+}
+
+@media (min-width: 1400px) {
+    .progress-bar-wrapper-2 {
+        width: 87%;
+        }
+}
