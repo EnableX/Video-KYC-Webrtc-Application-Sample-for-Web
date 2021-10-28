@@ -152,6 +152,8 @@ var createRoom = function (callback) {
                 };
                setTimeout(function () {
                    EnxRtc.Logger.setLogLevel(4);
+                    config.audio  = {deviceId : document.querySelector("#audio_device").value}
+                    config.video  = {deviceId : document.querySelector("#camera_device").value}
 
                    createToken(token_json, function (response) {
                        var token = response;
@@ -253,7 +255,6 @@ function next_question(counter)
             $("#close_quest").show();
         },6000);
 
-
     }
     else
     {
@@ -281,8 +282,13 @@ function restartQuestions(){
         $('#next_question').show();
         startTimer();
     },6000);
+    document.querySelector('#close').style.display='show';
+    setTimeout(function(){
+        document.querySelector('#next_question').show();
+    },6000);
     
 }
+
 
 
 
@@ -348,3 +354,74 @@ function startTimer(){
     }, 1000);
     
 }
+
+EnxRtc.getDevices(function (arg) {
+    let camlist = '';
+    let miclist = '';
+    // var camera_desc = document.querySelector('.camera-desc .head');
+    // var microphone_desc = document.querySelector('.microphone-desc .head');
+
+    if (arg.result === 0) {
+        arg.devices.cam.forEach(element => {
+            var camId = element.deviceId.toString();
+            camlist+=`<option value="${element.deviceId}">${element.label}</option>`;
+            //camlist += `<input type="radio" id="${element.deviceId}" name="camera" value="${element.label}" onclick="switchcam(this)"> <label for="${element.deviceId}">${element.label}</label><br>`
+        });
+
+        arg.devices.mic.forEach(element => {
+            var micId = element.deviceId.toString();
+            miclist+=`<option value="${element.deviceId}" >${element.label}</option>`
+           // miclist += `<input type="radio" id="${element.deviceId}" name="mic" value="${element.label}" onclick="switchmic(this)"> <label for="${element.deviceId}">${element.label}</label><br>`
+        });
+        document.querySelector('#audio_device').innerHTML=miclist;
+        document.querySelector('#camera_device').innerHTML=camlist;
+        // camera_desc.innerHTML = camlist;
+        // microphone_desc.innerHTML = miclist;
+    } else if (arg.result === 1145) {
+        toastr.options.positionClass = 'toast-bottom-right';
+        toastr.error("Your media devices might be in use with some other application.");
+        // $(".error_div").html(
+        //     "Your media devices might be in use with some other application."
+        // );
+        // $(".error_div").show();
+        return false;
+    } else {
+        $(".error_div").show();
+
+        return false;
+    }
+});
+
+
+function switchcam(_this){
+    localStream.switchCamera(localStream, _this.id, function (Stream) {
+        if (Stream && Stream.getID) {
+            localStream = Stream; // LocalStream updated   
+        }
+        else if (Stream.message === 'success') {
+
+        }
+        else {
+            // Failed to switch
+            toastr.options.positionClass = 'toast-bottom-right';
+            toastr.error("Couldn't get a stream");
+        }
+    });
+}
+
+function switchmicro(_this){
+    localStream.switchMicrophone(localStream, _this.id, function (Stream) {
+        if (Stream && Stream.getID) {
+            localStream = Stream; // LocalStream updated   
+        }
+        else if (Stream.message === 'success') {
+
+        }
+        else {
+            toastr.options.positionClass = 'toast-bottom-right';
+            toastr.error("Couldn't get a stream");
+        }
+    });
+}
+
+

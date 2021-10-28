@@ -33,8 +33,7 @@
         }
 
         button#joinRoom {
-            height: 85px;
-            font-size: x-large;
+            max-width: 150px;
         }
 
         .center-text {
@@ -52,7 +51,7 @@
 
         .bottom-center-text {
             position: absolute;
-            bottom: 7%;
+            bottom: 0;
             left: 0;
             right: 0;
             margin: auto;
@@ -69,23 +68,36 @@
 
 <body>
     <!--<div class="preloader"></div>-->
+    
     <div class="preloader" style="display: none;"></div>
+   
     <div class="container-fluid">
-        <div class="joinRoom">
-            <div class="container icon-wrapper" >
-                <img src="../img/logo.png" alt="" style="width:200px">
+        
+       
+        <div class="login-page joinRoom">
+             
+            <div class="form">
+                <div class="icon-wrapper" >
+                    <img src="../img/logo.png" alt="" style="width:200px">
+                </div>
+              <form class="login-form">
+                <select name="Audio" id="audio_device">
+                    </select>
+                <select name="Camera" id="camera_device">
+                    </select>
+                    
+                        <button class="btn btn-danger" id="joinRoom" >Start Video KYC</button>
+              </form>
             </div>
-            <div class="text-center center-text">
-                <button class="btn btn-danger" id="joinRoom">Start Video KYC</button>
-            </div>
-            
-        </div>
+          </div>
+
         
         <div class="row " id="confo_container" style="display: none;">
 
             <div class="container icon-wrapper">
                 <img src="../img/logo.png" alt="" style="width:200px">
             </div>
+            
             <div class="custom-wrapper"> 
                 <div class="restart-button" id="restart_btn">
                     <button id="restart" class="btn btn-danger btn-lg" style="display: none;" onclick="location.reload()" >Restart</button>
@@ -127,7 +139,7 @@
                 </div>
             </div>
             <div id="snapshot-container-success-text" class="bottom-center-text" style="display: none;">
-                <h2 style="color: white;">Photo Saved</h2>
+                <h2 style="color: white;">Photo saved</h2>
             </div>
             <div class="question_container bottom-center-text" style="display: none;">
                 <div id="sample_text_container">
@@ -139,7 +151,7 @@
                         <button id="close_sample" class="btn btn-danger btn-lg">OK. Get started! </button>
                     </div>
                 </div>
-                <div class="timer_container" >
+                <div class="timer_container" style="margin-top: 10px;" >
                     <h3 class="timer" id="timer" style="color:white;"></h2>
                 </div>
                 
@@ -175,8 +187,8 @@
                     </div>
                    </div>
                 </div>
-              <button id="website" class="btn btn-warning " ><a href='https://www.enablex.io/' alt='Broken Link' style="color: white;">Website</a></button>
-             <button id="try_again" class="btn btn-danger " onclick="location.reload()">Restart</button>
+              <button id="website" class="btn btn-warning btn-lg " ><a href='https://www.enablex.io/' alt='Broken Link' style="color: white;">Website</a></button>
+             <button id="try_again" class="btn btn-danger btn-lg " onclick="location.reload()">Restart</button>
             </div>
         </div>
     </div>
