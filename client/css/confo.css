@@ -364,12 +364,13 @@ div#try_again {
 }
 .bottom-center-text {
     bottom: 0;
+    z-index: 99;
 }
 .custom-wrapper {
-    height: 100%;
+    /* height: 100%;
     top: 0;
     width: 100%;
-    display: block;
+    display: block; */
 }
 .video_div {
     height : 100vh !important;

@@ -104,8 +104,8 @@ function updateBar(count){
 
 var options = {
     player: {
-        'height': '90%',
-        'width': '90%',
+        'height': '80%',
+        'width': '80%',
         'minHeight': 'inherit',
         'minWidth': 'inherit'
     },
@@ -271,42 +271,63 @@ function next_question(counter)
     }
 }
 
-// let toggle=0;
+function restartQuestions(){
+    counter=0;
+    $('#question').html(questions[counter].question);
+    document.querySelector('#progress-change').style.width=`${Math.floor((counter/questionsLength)*100)}%`;
+    document.querySelector('#progress-change').innerHTML=`${Math.floor((count/questionsLength)*100)}%`;
+    $('#next_question').hide();
+    setTimeout(function(){
+        $('#next_question').show();
+        startTimer();
+    },6000);
+    
+}
 
-// function restartQuestions(){
-//     if(counter!==questionsLength-1){
-//         $('#next_question').hide();
-//     setTimeout(function(){
-//         $("#next_question").show();
-//     },2000);
-//     }
-//     if(counter===questionsLength-1){
-//         $('#close').hide();
-//         setTimeout(function(){
 
-//             $('#next_question').show();
-//         },1000);   
+
+
+
+let toggle=0;
+
+function restart1Questions(){
+    if(counter!==questionsLength-1){
+        $('#next_question').hide();
+    setTimeout(function(){
+        $("#next_question").show();
+    },2000);
+    }
+    if(counter===questionsLength-1){
+        $('#close').hide();
+        setTimeout(function(){
+
+            $('#next_question').show();
+        },1000);   
        
-//     }
+    }
+    document.querySelector('#close').style.opacity='0';
+    setTimeout(function(){
+        document.querySelector('#close').style.opacity='1';
+    },questionsLength*6000);
     
     
-//     counter=0;
-//     $('#question').html(questions[counter].question);
-//     document.querySelector('#progress-change').style.width=`${Math.floor((counter/questionsLength)*100)}%`;
-//     document.querySelector('#progress-change').innerHTML=`  ${Math.floor((count/questionsLength)*100)}%`;
+    counter=0;
+    $('#question').html(questions[counter].question);
+    document.querySelector('#progress-change').style.width=`${Math.floor((counter/questionsLength)*100)}%`;
+    document.querySelector('#progress-change').innerHTML=`${Math.floor((count/questionsLength)*100)}%`;
     
-//     // while(counter<questionsLength-1){
-//     //     if(document.querySelector('#next_question').clicked===true){
-//     //         counter++;
-//     //         $('#question').html(questions[counter].question);
-//     //         document.querySelector('#progress-change').style.width=`${Math.floor((counter/questionsLength)*100)}%`;
-//     //         document.querySelector('#progress-change').innerHTML=`  ${Math.floor((counter/questionsLength)*100)}%`;
-//     //     }
-//     // }
-//     // $('#question').html(questions[counter].question);
-//     // $('#close').show();
+    // while(counter<questionsLength-1){
+    //     if(document.querySelector('#next_question').clicked===true){
+    //         counter++;
+    //         $('#question').html(questions[counter].question);
+    //         document.querySelector('#progress-change').style.width=`${Math.floor((counter/questionsLength)*100)}%`;
+    //         document.querySelector('#progress-change').innerHTML=`  ${Math.floor((counter/questionsLength)*100)}%`;
+    //     }
+    // }
+    // $('#question').html(questions[counter].question);
+    // $('#close').show();
     
-// }
+}
 function startTimer(){
     
     var counter = 5;
