@@ -1,14 +1,11 @@
-# Video KYC: A Sample Web App using Node.js and EnableX Web Toolkit
+# Developing a Video KYC Web App with Node.js and EnableX Web Toolkit
 
-The Sample Web App demonstrates the use of APIs for EnableX platform to develop basic Video KYC Application. The main motivation behind this application is to demonstrate usage of APIs and allow developers to ramp up on app by hosting on their own devices instead of directly using servers.
+Coding a Video KYC Web App: Node.js & EnableX Web Toolkit 
 
-RTC Applications hosted on EnableX platform run natively on supported set of web browsers without any additional plugin downloads. 
-
-This basic  Video KYC Application is developed using HTML, CSS, Bootstrap, JavaScript, jQuery, Node.js and EnxRtc (The EnableX Web Toolkit).
+See our Sample Web App showcasing EnableX APIs for a basic Video KYC solution. This app helps developers learn API usage and host it on their devices, avoiding server dependencies. It runs smoothly on supported web browsers, no plugins needed. Developed with HTML, CSS, Bootstrap, JavaScript, jQuery, Node.js, and EnxRtc (EnableX Web Toolkit). 
 
 >The details of the supported set of web browsers can be found here:
 https://developer.enablex.io/video/browser-compatibility-of-enablex-video/
-
 
 ## 1. Important!
 
